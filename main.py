@@ -4,7 +4,7 @@ from PIL import Image
 
 from util import get_limits
 
-green = [0, 255, 0] # green in BGR colorspace
+target_color = [0, 255, 0] # green in BGR colorspace
 cap = cv2.VideoCapture(0)
 
 
@@ -13,7 +13,7 @@ while True:
 
     hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    lower_Limit, upper_Limit = get_limits(color=green)
+    lower_Limit, upper_Limit = get_limits(color=target_color)
 
     mask = cv2.inRange(hsvImage, lower_Limit, upper_Limit)
 
